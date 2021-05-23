@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Drum Machine</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header><h1>Browser Beats</h1></header>
+		<div class="controls">
+			<button id="play-btn" class="play">Play</button>
+			<label for="tempo"
+				><p>Tempo: <span class="tempo-val">120</span> bpm</p>
+				<input
+					type="range"
+					name="tempo"
+					id="tempo"
+					min="100"
+					max="360"
+					value="120"
+					step="1"
+			/></label>
+		</div>
+		<div class="drummachine">
+			<div class="mixer">
+				<label for="cymbal">
+					<p>Cymbal</p>
+					<input
+						type="range"
+						name="cymbal"
+						id="crash-gain"
+						min="0"
+						max="120"
+						step="1"
+				/></label>
+				<label for="highhat"
+					><p>High Hat</p>
+					<input
+						type="range"
+						name="highhat"
+						id="highhat-gain"
+						min="0"
+						max="120"
+						step="1"
+				/></label>
+				<label for="snare"
+					><p>Snare/Clap</p>
+					<input
+						type="range"
+						name="snare"
+						id="snare-gain"
+						min="0"
+						max="120"
+						step="1"
+				/></label>
+				<label for="kick">
+					<p>Kick</p>
+					<input
+						type="range"
+						name="kick"
+						id="kick-gain"
+						min="0"
+						max="120"
+						step="1"
+				/></label>
+				<label for="808">
+					<p>808</p>
+					<input
+						type="range"
+						name="808"
+						id="eightOeight-gain"
+						min="0"
+						max="120"
+						step="1"
+				/></label>
+			</div>
+
+			<div class="sequencer">
+				<ul class="cymbal pads">
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+				</ul>
+				<ul class="highhat pads">
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+				</ul>
+
+				<ul class="snare pads">
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+				</ul>
+				<ul class="kick pads">
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+				</ul>
+				<ul class="808 pads">
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+					<li><button aria-checked="false" class="beat off"></button></li>
+				</ul>
+			</div>
+			<ul class="indicator">
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+				<li><div class="idctr"></div></li>
+			</ul>
+		</div>
+		<div class="samples" style="visibility: hidden">
+			<audio src="samples/808.wav" class="sample-808"></audio>
+			<audio src="samples/kick.wav" class="sample-kick"></audio>
+			<audio src="samples/crash.wav" class="sample-crash"></audio>
+			<audio src="samples/hihat.wav" class="sample-hh"></audio>
+			<audio src="samples/snare.wav" class="sample-snare"></audio>
+		</div>
+		<script src="index.js"></script>
+		<script src="sequencer.js"></script>
+	</body>
+</html>
