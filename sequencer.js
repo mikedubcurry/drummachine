@@ -28,8 +28,6 @@ function watchVolChange(control, gainNode) {
 	control.addEventListener(
 		'input',
 		function () {
-			console.log(this.value / 100);
-			console.log(gainNode.gain.value);
 			gainNode.gain.value = this.value / 100;
 		},
 		false
@@ -86,48 +84,23 @@ function nextNote() {
 }
 
 const pads = getAll('.pads');
-console.log(pads);
 const notesInQueue = [];
 let crashSample, hiHatSample, snareSample, kickSample, eightOeightSample;
 function scheduleNote(beatNumber, time) {
 	notesInQueue.push({ note: beatNumber, time });
-	if (
-		pads[0]
-			.querySelectorAll('button')
-			[beatNumber].getAttribute('aria-checked') === 'true'
-	) {
+	if (pads[0].querySelectorAll('button')[beatNumber].getAttribute('aria-checked') === 'true') {
 		playSample(ctx, crashSample, crashGain, time);
 	}
-	if (
-		pads[1]
-			.querySelectorAll('button')
-			[beatNumber].getAttribute('aria-checked') === 'true'
-	) {
+	if (pads[1].querySelectorAll('button')[beatNumber].getAttribute('aria-checked') === 'true') {
 		playSample(ctx, hiHatSample, hihatGain, time);
 	}
-	if (
-		pads[2]
-			.querySelectorAll('button')
-			[beatNumber].getAttribute('aria-checked') === 'true'
-	) {
+	if (pads[2].querySelectorAll('button')[beatNumber].getAttribute('aria-checked') === 'true') {
 		playSample(ctx, snareSample, snareGain, time);
 	}
-	console.log(
-		pads[3].querySelectorAll('button')[0].getAttribute('aria-checked')
-	);
-	if (
-		pads[3]
-			.querySelectorAll('button')
-			[beatNumber].getAttribute('aria-checked') === 'true'
-	) {
-		console.log('should play kick');
+	if (pads[3].querySelectorAll('button')[beatNumber].getAttribute('aria-checked') === 'true') {
 		playSample(ctx, kickSample, kickGain, time);
 	}
-	if (
-		pads[4]
-			.querySelectorAll('button')
-			[beatNumber].getAttribute('aria-checked') === 'true'
-	) {
+	if (pads[4].querySelectorAll('button')[beatNumber].getAttribute('aria-checked') === 'true') {
 		playSample(ctx, eightOeightSample, eightOeightGain, time);
 	}
 }
@@ -188,10 +161,8 @@ function clickPlay(e) {
 }
 
 getSamples(ctx, samples).then((buffers) => {
-	console.log(buffers);
 	// '808.wav', 'kick.wav', 'crash.wav', 'snare.wav', 'hihat.wav'
-	[eightOeightSample, kickSample, crashSample, snareSample, hiHatSample] =
-		buffers;
+	[eightOeightSample, kickSample, crashSample, snareSample, hiHatSample] = buffers;
 	playBtn.addEventListener('click', function (e) {
 		playing = !playing;
 		this.innerText = playing ? 'Stop' : 'Play';
